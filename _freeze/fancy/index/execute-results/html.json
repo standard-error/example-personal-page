@@ -1,0 +1,15 @@
+{
+  "hash": "786811949e813ca758571c84b149b822",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"index\"\nformat: html\n---\n\n\n### Super fancy stuff\nThis is a text about super fancy stuff I did. For example, let's have a look at this wonderful R code:\n\n::: {.cell}\n\n```{.r .cell-code}\n# Generate some multilevel data (my_data) with NED (Level 2), stress (Level 1), mood (Level 1) with 100 participants and 80 occasions each\nmy_data <- data.frame(\n  id = rep(1:100, each = 80),\n  NED = rep(rnorm(100, mean = 0, sd = 1), each = 80),\n  stress = rnorm(8000, mean = 0, sd = 1),\n  mood = rnorm(8000, mean = 0, sd = 1)\n)\n\n\n\n# Create a multilevel model in which NED (Level 2), stress (Level 1), and their interaction predict mood (Level 1)\n\nmod <- lmerTest::lmer(mood ~ stress * NED + (1 + stress| id), data = my_data)\n```\n\n::: {.cell-output .cell-output-stderr}\n\n```\nboundary (singular) fit: see help('isSingular')\n```\n\n\n:::\n\n```{.r .cell-code}\n# Output\nsummary(mod)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\nLinear mixed model fit by REML. t-tests use Satterthwaite's method [\nlmerModLmerTest]\nFormula: mood ~ stress * NED + (1 + stress | id)\n   Data: my_data\n\nREML criterion at convergence: 22501.4\n\nScaled residuals: \n    Min      1Q  Median      3Q     Max \n-3.9878 -0.6838  0.0085  0.6854  3.5057 \n\nRandom effects:\n Groups   Name        Variance  Std.Dev. Corr\n id       (Intercept) 0.0001241 0.01114      \n          stress      0.0003054 0.01748  1.00\n Residual             0.9716973 0.98575      \nNumber of obs: 8000, groups:  id, 100\n\nFixed effects:\n              Estimate Std. Error         df t value Pr(>|t|)  \n(Intercept)  -0.015397   0.011120 703.535070  -1.385   0.1666  \nstress       -0.009433   0.011137 178.709938  -0.847   0.3981  \nNED          -0.007446   0.011324 703.500069  -0.658   0.5110  \nstress:NED   -0.021566   0.011419 184.792901  -1.889   0.0605 .\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nCorrelation of Fixed Effects:\n           (Intr) stress NED  \nstress     0.016              \nNED        0.085  0.017       \nstress:NED 0.017  0.104  0.002\noptimizer (nloptwrap) convergence code: 0 (OK)\nboundary (singular) fit: see help('isSingular')\n```\n\n\n:::\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

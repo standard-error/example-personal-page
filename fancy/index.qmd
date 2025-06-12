@@ -1,0 +1,27 @@
+---
+title: "index"
+format: html
+---
+
+### Super fancy stuff
+This is a text about super fancy stuff I did. For example, let's have a look at this wonderful R code:
+```{r}  
+# Generate some multilevel data (my_data) with NED (Level 2), stress (Level 1), mood (Level 1) with 100 participants and 80 occasions each
+my_data <- data.frame(
+  id = rep(1:100, each = 80),
+  NED = rep(rnorm(100, mean = 0, sd = 1), each = 80),
+  stress = rnorm(8000, mean = 0, sd = 1),
+  mood = rnorm(8000, mean = 0, sd = 1)
+)
+
+
+
+# Create a multilevel model in which NED (Level 2), stress (Level 1), and their interaction predict mood (Level 1)
+
+mod <- lmerTest::lmer(mood ~ stress * NED + (1 + stress| id), data = my_data)
+
+# Output
+summary(mod)
+```
+
+
