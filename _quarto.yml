@@ -2,25 +2,27 @@
 
 # website settings
 website:
-  title: "Gandalf"                                # Your name
-  description: "Gandalf is a renowned wizard and scholar of Middle-earth"   # A brief slogan (optional)
+  title: "Names"                                # Your name
+  description: "This is a short description"   # A brief slogan (optional) -> is displayed on search engines (as short description)
   image: img/my_image.jpg
   
-  favicon: img/favicon.png
+  favicon: img/favicon.png # icon on top left of website (in tab)
   
   # start of the navigation bar at the top of the website
-  navbar:
+  navbar: # on top of website
     pinned: true
     logo: /img/logo.png
     
     # your sub-pages
     left:
       - text: "Projects"
-        href: projects/index.qmd
+        href: projects/index.qmd # file for this projects is in directory projects in file index.qmd (some other quarto file)
       - text: "Photography"
         href: photography/index.qmd
       - text: "CV"
         href: cv/index.qmd
+      - text: "Fancy Stuff"
+        href: fancy/index.qmd
     
     # your social media handles
     right:
